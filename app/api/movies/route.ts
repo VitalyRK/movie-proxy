@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 const API_KEY = process.env.API_KEY;
 
 export async function POST(request: Request) {
@@ -34,7 +36,7 @@ export async function POST(request: Request) {
 
   const data = await response.json();
 
-  return new Response(data);
+  return NextResponse.json(data, { status: 200 });
 }
 
 export async function GET() {
